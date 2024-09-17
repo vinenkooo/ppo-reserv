@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 func main() {
@@ -9,5 +10,8 @@ func main() {
 	// 
 	//
 	fmt.Println(helloString)
+	file, _ := os.Create("hello.txt")
+	defer file.Close()
+	_, _ = file.WriteString(helloString)
 
 }
